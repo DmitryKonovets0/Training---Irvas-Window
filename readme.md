@@ -4,12 +4,10 @@
 
 ## Условия задачи
 
-*Модальное окно*
-1. При нажатии на кнопку с классом "popup_engineer_btn", должно открываться модальное окно с классом "popup_engineer"
-2. При нажатии на ссылки с классом "phone_link", должно открываться модальное окно с классом "popup"
-3. Если пользователь на странице более 60s, должно появиться модальное окно с классом "popup"
-4. Необходима модульная структура
+*Табы*
 
+1. Реализовать табы с использованием класса 'active'
+2. Реализовать табы с использованием класса 'after_click'
 
 ## Примечание
 
@@ -21,11 +19,9 @@ This repository contains code written during my learning process in programming.
 
 ## Task Conditions
 
-*Modal Window*
-1. Clicking the button with the class "popup_engineer_btn" should open a modal window with the class "popup_engineer"
-2. Clicking on links with the class "phone_link" should open a modal window with the class "popup"
-3. If the user has been on the page for more than 60s, a modal window with the class "popup" should appear
-4. A modular structure is required
+*Tabs*
+1. Implement tabs using the 'active' class.
+2. Implement tabs using the 'after_click' class.
 
 ## Note
 
