@@ -486,7 +486,7 @@ textarea:focus {
   display: none;
 }
 
-.glazing .active a {
+.glazing a.active {
   text-decoration: none;
   color: #454545;
 }

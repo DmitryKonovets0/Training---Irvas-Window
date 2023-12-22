@@ -4,10 +4,11 @@
 
 ## Условия задачи
 
-*Табы*
+*Формы*
 
-1. Реализовать табы с использованием класса 'active'
-2. Реализовать табы с использованием класса 'after_click'
+1. Обязательно использование AJAX
+2. В поле с телефоном можно вводить только цифры
+3. Необходимо оповестить пользователя о состоянии отправки (идет отправка, отправлено, ошибка)
 
 ## Примечание
 
@@ -19,9 +20,10 @@ This repository contains code written during my learning process in programming.
 
 ## Task Conditions
 
-*Tabs*
-1. Implement tabs using the 'active' class.
-2. Implement tabs using the 'after_click' class.
+*Forms*
+1. Mandatory use of AJAX.
+2. Only numeric input is allowed in the phone field.
+3. It is necessary to inform the user about the submission status (submission in progress, submitted, error).
 
 ## Note
 
