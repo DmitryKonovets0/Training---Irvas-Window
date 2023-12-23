@@ -4,11 +4,14 @@
 
 ## Условия задачи
 
-*Формы*
+*Модальное окно - калькулятор*
 
-1. Обязательно использование AJAX
-2. В поле с телефоном можно вводить только цифры
-3. Необходимо оповестить пользователя о состоянии отправки (идет отправка, отправлено, ошибка)
+1. Сделать функциональные модальные окна.
+2. Создать объект для хранения данных, поступающих от пользователя.
+3. Убрать возможность выбирать сразу два checkbox.
+4. Убрать возможность закрывать модальное окно с помощью подложки.
+5. Запретить ввод букв в поля ввода с идентификаторами "width" и "height".
+
 
 ## Примечание
 
@@ -20,11 +23,12 @@ This repository contains code written during my learning process in programming.
 
 ## Task Conditions
 
-*Forms*
-1. Mandatory use of AJAX.
-2. Only numeric input is allowed in the phone field.
-3. It is necessary to inform the user about the submission status (submission in progress, submitted, error).
-
+*Modal Window - Calculator*
+1. Make functional modal windows.
+2. Create an object to store user-input data.
+3. Remove the ability to select both checkboxes at once.
+4. Remove the ability to close the modal window by clicking on the overlay.
+5. Disallow entering letters in the "width" and "height" input fields.
 ## Note
 
 This project is intended solely for educational purposes. All code and materials within the repository are provided exclusively for learning purposes.
