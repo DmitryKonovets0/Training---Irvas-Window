@@ -4,14 +4,12 @@
 
 ## Условия задачи
 
-*Модальное окно - калькулятор*
+*Модальное Окно - Калькулятор(Mодификация)*
 
-1. Сделать функциональные модальные окна.
-2. Создать объект для хранения данных, поступающих от пользователя.
-3. Убрать возможность выбирать сразу два checkbox.
-4. Убрать возможность закрывать модальное окно с помощью подложки.
-5. Запретить ввод букв в поля ввода с идентификаторами "width" и "height".
-
+1. Исключить возможность перехода по модальным окнам без заполнения данных.
+2. Автоматическое закрытие модального окна через 5 секунд после заполнения и отправки данных на сервер.
+3. Очистить объект с данными после закрытия модального окна.
+ 
 
 ## Примечание
 
@@ -23,12 +21,10 @@ This repository contains code written during my learning process in programming.
 
 ## Task Conditions
 
-*Modal Window - Calculator*
-1. Make functional modal windows.
-2. Create an object to store user-input data.
-3. Remove the ability to select both checkboxes at once.
-4. Remove the ability to close the modal window by clicking on the overlay.
-5. Disallow entering letters in the "width" and "height" input fields.
+*Modal Window - Calculator(Modification)*
+Disable the ability to navigate through modal windows without filling in data.
+Automatically close the modal window 5 seconds after filling in and submitting data to the server.
+Clear the data object after closing the modal window.
 ## Note
 
 This project is intended solely for educational purposes. All code and materials within the repository are provided exclusively for learning purposes.

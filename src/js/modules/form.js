@@ -1,11 +1,9 @@
 import checkNumInput from "./checkNumInputs";
-const forms = () => {
-    const form = document.querySelectorAll('form'),
-        inputs = document.querySelectorAll('input'),
-        phoneInputs = document.querySelectorAll('input[name="user_phone"]');
+const forms = (state) => {
+    const forms = document.querySelectorAll('form'),
+        inputs = document.querySelectorAll('input');
 
-    checkNumInput('input[name="user_phone"]')
-
+    checkNumInput('input[name="user_phone"]');
 
     const message = {
         loading: 'Загрузка...',
@@ -29,15 +27,14 @@ const forms = () => {
         });
     };
 
-    form.forEach(item => {
-        item.addEventListener('submit', (e) => {
+    forms.forEach(form => {
+        form.addEventListener('submit', (e) => {
             e.preventDefault();
 
             let statusMessage = document.createElement('div');
             statusMessage.classList.add('status');
-            item.appendChild(statusMessage);
-
-            const formData = new FormData(item);
+            form.appendChild(statusMessage);
+            const formData = new FormData(form);
 
             postData('assets/server.php', formData)
                 .then(res => {
@@ -49,10 +46,40 @@ const forms = () => {
                     clearInputs();
                     setTimeout(() => {
                         statusMessage.remove();
-                    }, 5000);
+                        hideModal()
+                        clearState()
+                    }, 2000);
+                    console.log(state)
                 });
-        });
-    });
-};
 
+        });
+
+    });
+
+    const hideModal = () => {
+        const modalEnd =  document.querySelector('.popup_calc_end');
+        modalEnd.style.display = 'none';
+    }
+    const clearState = () => {
+        for (const key in state) {
+            switch (key) {
+                case 'form' :
+                    state.form = 0
+                    break;
+                case 'width':
+                    state.width = null
+                    break;
+                case 'height':
+                    state.height = null
+                    break;
+                case 'type':
+                    state.type = 'tree'
+                    break;
+                case 'profile':
+                    delete state.profile;
+
+            }
+        }
+    }
+    }
 export default forms;

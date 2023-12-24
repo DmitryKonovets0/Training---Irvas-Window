@@ -1,5 +1,7 @@
 
-const modals = () => {
+const modals = (state) => {
+
+
     function bindModal(triggerSelector, modalSelector, closeSelector, closeClickOverlay = true) {
         const trigger = document.querySelectorAll(triggerSelector),
             modal = document.querySelector(modalSelector),
@@ -52,12 +54,50 @@ const modals = () => {
         }, time);
     }
 
+    console.log(state)
+    const width = document.querySelector('#width'),
+          height = document.querySelector('#height'),
+          profiles = document.querySelectorAll('.checkbox'),
+          calcBtn = document.querySelector('button.popup_calc_button'),
+          profileBtn = document.querySelector('button.popup_calc_profile_button')
+
+
+    calcBtn.setAttribute('disabled', 'true')
+    profileBtn.setAttribute('disabled', 'true')
+    let i = 0, k = 0
+    width.addEventListener('input', () => {
+        ++i
+        if(i > 0) {
+            calcBtn.removeAttribute('disabled', 'true')
+
+        }
+    })
+    height.addEventListener('input', () => {
+        ++i;
+    })
+    profiles.forEach(profile => {
+        profile.addEventListener('change', () => {
+            k++
+            if(k > 0) {
+                profileBtn.removeAttribute('disabled', 'true')
+            }
+            console.log(k)
+
+        })
+    })
+
+    console.log(i)
+
+
+
     bindModal('.popup_engineer_btn', '.popup_engineer', '.popup_engineer .popup_close');
     bindModal('.phone_link', '.popup', '.popup .popup_close');
     bindModal('.popup_calc_btn', '.popup_calc', '.popup_calc_close', false);
     bindModal('.popup_calc_button', '.popup_calc_profile', '.popup_calc_profile_close', false);
     bindModal('.popup_calc_profile_button', '.popup_calc_end', '.popup_calc_end_close', false);
     // showModalByTime('.popup', 60000);
+
+
 };
 
 export default modals;

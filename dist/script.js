@@ -34,7 +34,7 @@ const changeModalState = state => {
               i === 0 ? state[prop] = 'cold' : state[prop] = "warm";
               elem.forEach((box, j) => {
                 box.checked = false;
-                if (i == j) {
+                if (i === j) {
                   box.checked = true;
                 }
               });
@@ -96,10 +96,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _checkNumInputs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./checkNumInputs */ "./src/js/modules/checkNumInputs.js");
 
-const forms = () => {
-  const form = document.querySelectorAll('form'),
-    inputs = document.querySelectorAll('input'),
-    phoneInputs = document.querySelectorAll('input[name="user_phone"]');
+const forms = state => {
+  const forms = document.querySelectorAll('form'),
+    inputs = document.querySelectorAll('input');
   (0,_checkNumInputs__WEBPACK_IMPORTED_MODULE_0__["default"])('input[name="user_phone"]');
   const message = {
     loading: 'Загрузка...',
@@ -119,13 +118,13 @@ const forms = () => {
       item.value = '';
     });
   };
-  form.forEach(item => {
-    item.addEventListener('submit', e => {
+  forms.forEach(form => {
+    form.addEventListener('submit', e => {
       e.preventDefault();
       let statusMessage = document.createElement('div');
       statusMessage.classList.add('status');
-      item.appendChild(statusMessage);
-      const formData = new FormData(item);
+      form.appendChild(statusMessage);
+      const formData = new FormData(form);
       postData('assets/server.php', formData).then(res => {
         console.log(res);
         statusMessage.textContent = message.success;
@@ -133,10 +132,37 @@ const forms = () => {
         clearInputs();
         setTimeout(() => {
           statusMessage.remove();
-        }, 5000);
+          hideModal();
+          clearState();
+        }, 2000);
+        console.log(state);
       });
     });
   });
+  const hideModal = () => {
+    const modalEnd = document.querySelector('.popup_calc_end');
+    modalEnd.style.display = 'none';
+  };
+  const clearState = () => {
+    for (const key in state) {
+      switch (key) {
+        case 'form':
+          state.form = 0;
+          break;
+        case 'width':
+          state.width = null;
+          break;
+        case 'height':
+          state.height = null;
+          break;
+        case 'type':
+          state.type = 'tree';
+          break;
+        case 'profile':
+          delete state.profile;
+      }
+    }
+  };
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (forms);
 
@@ -153,7 +179,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-const modals = () => {
+const modals = state => {
   function bindModal(triggerSelector, modalSelector, closeSelector, closeClickOverlay = true) {
     const trigger = document.querySelectorAll(triggerSelector),
       modal = document.querySelector(modalSelector),
@@ -197,6 +223,35 @@ const modals = () => {
       document.body.style.overflow = "hidden";
     }, time);
   }
+  console.log(state);
+  const width = document.querySelector('#width'),
+    height = document.querySelector('#height'),
+    profiles = document.querySelectorAll('.checkbox'),
+    calcBtn = document.querySelector('button.popup_calc_button'),
+    profileBtn = document.querySelector('button.popup_calc_profile_button');
+  calcBtn.setAttribute('disabled', 'true');
+  profileBtn.setAttribute('disabled', 'true');
+  let i = 0,
+    k = 0;
+  width.addEventListener('input', () => {
+    ++i;
+    if (i > 0) {
+      calcBtn.removeAttribute('disabled', 'true');
+    }
+  });
+  height.addEventListener('input', () => {
+    ++i;
+  });
+  profiles.forEach(profile => {
+    profile.addEventListener('change', () => {
+      k++;
+      if (k > 0) {
+        profileBtn.removeAttribute('disabled', 'true');
+      }
+      console.log(k);
+    });
+  });
+  console.log(i);
   bindModal('.popup_engineer_btn', '.popup_engineer', '.popup_engineer .popup_close');
   bindModal('.phone_link', '.popup', '.popup .popup_close');
   bindModal('.popup_calc_btn', '.popup_calc', '.popup_calc_close', false);
@@ -14202,11 +14257,11 @@ __webpack_require__.r(__webpack_exports__);
 window.addEventListener('DOMContentLoaded', () => {
   let modalState = {};
   (0,_modules_changeModalState__WEBPACK_IMPORTED_MODULE_4__["default"])(modalState);
-  (0,_modules_modal__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  (0,_modules_modal__WEBPACK_IMPORTED_MODULE_1__["default"])(modalState);
   (0,_modules_tabs__WEBPACK_IMPORTED_MODULE_2__["default"])('.glazing_slider ', '.glazing_block', '.glazing_content', 'active');
   (0,_modules_tabs__WEBPACK_IMPORTED_MODULE_2__["default"])('.decoration_slider', '.no_click', '.decoration_content > div > div', 'after_click');
   (0,_modules_tabs__WEBPACK_IMPORTED_MODULE_2__["default"])('.balcon_icons', '.balcon_icons_img', '.big_img > img', 'do_image_more', 'inline-block');
-  (0,_modules_form__WEBPACK_IMPORTED_MODULE_3__["default"])();
+  (0,_modules_form__WEBPACK_IMPORTED_MODULE_3__["default"])(modalState);
 });
 })();
 

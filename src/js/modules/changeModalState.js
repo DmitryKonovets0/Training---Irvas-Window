@@ -23,7 +23,7 @@ const changeModalState = (state) => {
                             i === 0 ? state[prop] = 'cold' : state[prop] = "warm"
                             elem.forEach((box, j) => {
                                 box.checked = false;
-                                if( i == j) {
+                                if( i === j) {
                                     box.checked = true;
                                 }
                             });
