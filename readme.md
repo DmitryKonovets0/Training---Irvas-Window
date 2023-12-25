@@ -4,11 +4,9 @@
 
 ## Условия задачи
 
-*Модальное Окно - Калькулятор(Mодификация)*
+*Таймер*
 
-1. Исключить возможность перехода по модальным окнам без заполнения данных.
-2. Автоматическое закрытие модального окна через 5 секунд после заполнения и отправки данных на сервер.
-3. Очистить объект с данными после закрытия модального окна.
+1. Сделать таймер на сайте 
  
 
 ## Примечание
@@ -21,10 +19,10 @@ This repository contains code written during my learning process in programming.
 
 ## Task Conditions
 
-*Modal Window - Calculator(Modification)*
-Disable the ability to navigate through modal windows without filling in data.
-Automatically close the modal window 5 seconds after filling in and submitting data to the server.
-Clear the data object after closing the modal window.
+*Timer*
+
+1. Created a timer for the website.
+
 ## Note
 
 This project is intended solely for educational purposes. All code and materials within the repository are provided exclusively for learning purposes.
