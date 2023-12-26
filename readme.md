@@ -4,9 +4,9 @@
 
 ## Условия задачи
 
-*Таймер*
+*Картинка*
 
-1. Сделать таймер на сайте 
+1. При нажатии на картинку, картинка должны увеличиваться и перемещаться на центр экрана. Фон должен быть затемнен
  
 
 ## Примечание
@@ -19,9 +19,8 @@ This repository contains code written during my learning process in programming.
 
 ## Task Conditions
 
-*Timer*
-
-1. Created a timer for the website.
+*Image*
+1. Upon clicking the image, the image should enlarge and move to the center of the screen. The background should be dimmed.
 
 ## Note
 
